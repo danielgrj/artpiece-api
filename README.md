@@ -9,7 +9,7 @@ need to start working, the changes you make should automatically be reflected.
 ## Setup
 
 See the docker repository to setup the project.
-[https://github.com/danielgrj/find-business-docker](https://github.com/danielgrj/find-business-docker)
+[https://github.com/danielgrj/artpiece-docker](https://github.com/danielgrj/artpiece-docker)
 
 ## Code guidelines
 
