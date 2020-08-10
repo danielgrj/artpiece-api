@@ -1,0 +1,79 @@
+{
+  "name": "artpiece",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build && node ./dist/bin/www.js",
+    "dev": "nodemon src/bin/www.js --ext js --exec babel-node",
+    "build": "babel src --out-dir dist",
+    "test": "env-cmd -f ./.env.dev jest --watch --runInBand",
+    "test:ci": "CI=true env-cmd -f ./.env.dev jest",
+    "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
+    "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json)\"",
+    "format": "npm run prettier -- --write",
+    "check-format": "npm run prettier -- --list-different",
+    "validate": "npm-run-all --parallel check-format lint",
+    "clean": "rm -rf dist && mkdir dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-typescript": "^7.10.4",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "env-cmd": "^10.1.0",
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.20.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "graph-cli": "0.0.1",
+    "husky": "^4.2.5",
+    "jest": "^26.2.2",
+    "lint-staged": "^10.2.11",
+    "nodemon": "^2.0.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "@koa/cors": "^3.1.0",
+    "@koa/multer": "^3.0.0",
+    "@koa/router": "^9.3.1",
+    "axios": "^0.19.2",
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-compress": "^5.0.1",
+    "koa-pino-logger": "^3.0.0",
+    "module-alias": "^2.2.2",
+    "pino": "^6.5.0"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src/*"
+    ],
+    "ignore": [
+      "**/__tests__/**",
+      "*.test.js",
+      "*.spec.js"
+    ]
+  },
+  "_moduleAliases": {
+    "@src": "./src",
+    "@utils": "./src/utils",
+    "@models": "./src/models",
+    "@controllers": "./src/controllers",
+    "@middleware": "./src/middleware",
+    "@routes": "./src/routes"
+  }
+}
