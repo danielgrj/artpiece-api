@@ -28,4 +28,4 @@ COPY . .
 # COPY docker-entrypoint.sh /usr/local/bin/
 # ENTRYPOINT ["docker-entrypoint.sh"]
 
-CMD [ "node", "./src/index" ]
+CMD [ "npm", "run", "dev" ]
